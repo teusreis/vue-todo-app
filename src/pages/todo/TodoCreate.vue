@@ -1,6 +1,6 @@
 <template>
     <header class="my-3">
-        <h2 class="text-xl text-green-400">New todo</h2>
+        <the-title>New todo</the-title>
     </header>
 
     <!-- <todo-form -->
@@ -9,10 +9,12 @@
 
 <script>
 import TodoForm from "../../components/todo/TodoForm.vue";
+import TheTitle from "../../ui/TheTitle.vue";
 
 export default {
     components: {
         TodoForm,
+        TheTitle,
     },
     props: {},
     data() {
@@ -27,7 +29,7 @@ export default {
             if (data.status === 201) {
                 this.$router.push({ name: "todo.index" });
             }
-        },
+        }
     },
 };
 </script>

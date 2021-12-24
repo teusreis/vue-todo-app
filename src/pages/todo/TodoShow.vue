@@ -1,19 +1,23 @@
 <template>
-    <header class="py-2 flex justify-end gap-2 items-center">
-        <router-link
-            :to="{ name: 'todo.index' }"
-            class="
-                font-semibold
-                text-green-400
-                hover:text-green-500
-                transition-all
-            "
-        >
-            Go back
-        </router-link>
-        <router-link :to="{ name: 'todo.edit', params: { id: id } }">
-            <the-button variant="primary-outline">Edit it</the-button>
-        </router-link>
+    <header class="py-3 flex justify-between gap-2 items-center">
+        <the-title>View todo</the-title>
+
+        <div class="flex justify-end items-center gap-2">
+            <router-link
+                :to="{ name: 'todo.index' }"
+                class="
+                    font-semibold
+                    text-green-400
+                    hover:text-green-500
+                    transition-all
+                "
+            >
+                Go back
+            </router-link>
+            <router-link :to="{ name: 'todo.edit', params: { id: id } }">
+                <the-button variant="primary-outline">Edit it</the-button>
+            </router-link>
+        </div>
     </header>
 
     <main class="">
@@ -33,7 +37,10 @@
 </template>
 
 <script>
+import TheTitle from '../../ui/TheTitle.vue';
+
 export default {
+    components: { TheTitle },
     data() {
         return {
             isLoading: true,
@@ -48,8 +55,6 @@ export default {
         async loadTodo() {
             const url = "/api/todo/" + this.id;
             const data = await this.$axios.get(url);
-
-            console.log(data);
 
             if (data.status === 200) {
                 this.title = data.data.title;

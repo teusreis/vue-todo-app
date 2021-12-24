@@ -1,5 +1,5 @@
 <template>
-    <h2 class="text-xl">Edit page</h2>
+    <the-title>Edit todo</the-title>
 
     <main>
         <todo-form
@@ -16,9 +16,10 @@
 
 <script>
 import TodoForm from "../../components/todo/TodoForm.vue";
+import TheTitle from "../../ui/TheTitle.vue";
 
 export default {
-    components: { TodoForm },
+    components: { TodoForm, TheTitle },
     data() {
         return {
             isLoading: true,
